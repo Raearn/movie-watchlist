@@ -8,7 +8,7 @@ async function searchMovie(event) {
       const inputValue = searchInput.value
 
       try {
-          const promiseData = fetch(`http://www.omdbapi.com/?apikey=b108b436&s=${inputValue}`)
+          const promiseData = fetch(`https://www.omdbapi.com/?apikey=b108b436&s=${inputValue}`)
           const [response, movie] = await Promise.all([promiseData, promiseData.then(response => response.json())])
           if (movie.Response === 'False') {
               // Add Not found
@@ -44,7 +44,7 @@ async function getMovieHTML(movieArray) {
 
   try {
     for (const id of movieArray) {
-      const movieData = fetch(`http://www.omdbapi.com/?apikey=b108b436&i=${id}`)
+      const movieData = fetch(`https://www.omdbapi.com/?apikey=b108b436&i=${id}`)
       const [response, movie] = await Promise.all([movieData, movieData.then(response => response.json())])
       const movieRating = movie.Ratings[0].Value
 

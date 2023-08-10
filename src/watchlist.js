@@ -32,7 +32,7 @@ async function render(movieID) {
   loading.style.display = 'flex'
   try {
     for (const id of movieID) {
-      const movieData = fetch(`http://www.omdbapi.com/?apikey=b108b436&i=${id}`)
+      const movieData = fetch(`https://www.omdbapi.com/?apikey=b108b436&i=${id}`)
       const [response, movie] = await Promise.all([movieData, movieData.then(response => response.json())])
       const movieRating = movie.Ratings[0].Value
 
