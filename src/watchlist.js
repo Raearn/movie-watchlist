@@ -3,14 +3,19 @@ export const movieSection = document.querySelector(".movie-list")
 export const loading = document.querySelector(".loading")
 export const notFound = document.querySelector(".not-found")
 
+let movieJSON = []
 let movieID = []
 
 window.addEventListener("load", () => {
-  const storedID = localStorage.getItem("watchlistID");
+  const stored = localStorage.getItem("watchlist")
+  const storedID = localStorage.getItem("watchlistID")
+  if (stored) {
+    movieJSON = JSON.parse(stored)
+  }
   if (storedID) {
     movieID = JSON.parse(storedID)
-    render(movieID)
   }
+  render(movieJSON)
 })
 
 document.addEventListener("click", (e) => {
@@ -20,20 +25,19 @@ document.addEventListener("click", (e) => {
       let parent = e.target
       movieID = movieID.filter(item => item !== removeMovie)
       localStorage.setItem("watchlistID", JSON.stringify(movieID))
-      e.target.closest(".movie-card").outerHTML = ''
+      movieJSON = movieJSON.filter((movie) => movie.imdbID !== removeMovie)
+      localStorage.setItem("watchlist", JSON.stringify(movieJSON))
+      e.target.closest(".movie-card").outerHTML = ""
     }
   }
 })
 
-async function render(movieID) {
+function render(movieJSON) {
   let html = ''
   movieSection.innerHTML = ''
   defaultDiv.style.display = 'none'
   loading.style.display = 'flex'
-  try {
-    for (const id of movieID) {
-      const movieData = fetch(`https://www.omdbapi.com/?apikey=b108b436&i=${id}`)
-      const [response, movie] = await Promise.all([movieData, movieData.then(response => response.json())])
+    for (const movie of movieJSON) {
       const movieRating = movie.Ratings[0].Value
 
       html += `<article class="movie-card">
@@ -54,13 +58,8 @@ async function render(movieID) {
       </div>
     </article>`
     }
-    
     loading.style.display = 'none'
     movieSection.style.display = 'flex'
     movieSection.innerHTML = html;
-
-  } catch(error) {
-    console.log(error)  
-  }
 }
 

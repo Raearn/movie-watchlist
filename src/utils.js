@@ -1,6 +1,19 @@
-import { searchInput, notFound, loading, movieSection, defaultDiv, movieID } from "./main";
+import { searchInput, notFound, loading, movieSection, defaultDiv } from "./main";
 
 let movieArray = []
+let movieID = []
+let movieJSON = []
+
+window.addEventListener("load", () => {
+  const stored = localStorage.getItem("watchlist")
+  const storedID = localStorage.getItem("watchlistID")
+  if (stored) {
+    movieJSON = JSON.parse(stored)
+  }
+  if (storedID) {
+    movieID = JSON.parse(storedID)
+  }
+})
 
 async function searchMovie(event) {
   if (event.type === 'click' || (event.type === 'keyup' && event.keyCode === 13)) {
@@ -54,6 +67,36 @@ async function getMovieHTML(movieArray) {
     : `<div class="add-btn" data-add="${imdbID}"><img src="./add.svg" class="add-icon">Watchlist</div>`;
         return button
       }
+
+      document.addEventListener("click", (e) => {
+        const addMovie = e.target.dataset.add
+        const removeMovie = e.target.dataset.remove
+        if (addMovie) {
+          const movieToAdd = movie
+          if (movieToAdd && movieToAdd.imdbID === addMovie) {
+            movieJSON.push(movieToAdd)
+            localStorage.setItem("watchlist", JSON.stringify(movieJSON))
+            console.log(movieJSON)
+          }
+          if (!movieID.includes(addMovie)) {
+            let parent = e.target
+            movieID.push(addMovie)
+            localStorage.setItem("watchlistID", JSON.stringify(movieID))
+            parent.outerHTML = `<div class="remove-btn" data-remove="${addMovie}"><img src="/remove.svg" class="remove-icon">Remove</div>`
+          }
+        }
+        if (removeMovie) {
+          if (movieID.includes(removeMovie)) {
+            let parent = e.target
+            movieID = movieID.filter(item => item !== removeMovie)
+            localStorage.setItem("watchlistID", JSON.stringify(movieID))
+            parent.outerHTML = `<div class="add-btn" data-add="${removeMovie}"><img src="/add.svg" class="add-icon">Watchlist</div>`
+            movieJSON = movieJSON.filter((movie) => movie.imdbID !== removeMovie);
+            localStorage.setItem("watchlist", JSON.stringify(movieJSON));
+            console.log(movieJSON);
+          }
+        }
+      })
 
       html += `<article class="movie-card">
       <img src="${movie.Poster}" class="poster" alt="">
