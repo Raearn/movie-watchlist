@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Watchlist</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav>
+          <div class="nav-btns">
+            <h1>My Watchlist</h1>
+            <h2><a href="./index.html">Search for movies</a></h2>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <section class="movie-list" style="display: none;">
+        </section>
+        <div class="loading" style="display: none;">
+          <div></div>
+          <div></div>
+        </div>
+        <div class="default">
+          <div class="default-text">Your watchlist is looking a little empty.</div>
+        </div>
+        <div class="not-found" style="display: none;">
+          <div class="default-text">Movie not found..</div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="./src/watchlist.js"></script>
+  </body>
+</html>

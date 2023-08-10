@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font: inherit;
+}
+
+img, svg, picture, video {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: grey;
+}
+
+.default {
+  display: block;
+}
+
+.container {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+nav {
+  background: #0E0E0E url("./public/THJJRUhNlEc.png");
+  height: 208px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.674375rem;
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+h1, h2 {
+  color: #fff;
+}
+
+h2 a {
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  box-shadow: 0px 1px 2px 0px #0000000D;
+  position: absolute;
+  bottom: -17px;
+  z-index: 1;
+}
+
+.search-btn {
+  padding: 9px 11px 9px 17px;
+  width:120px;
+  background-color: #4B4B4B;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  cursor: pointer;
+}
+
+main {
+  min-height: calc(100svh - 208px);
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+}
+
+.default, .not-found {
+  color: #2E2E2F;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.default-icon {
+  width: 70px;
+  margin: 0 auto;
+}
+
+.default-text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-top: 0.546875rem;
+}
+
+.movie-list {
+  color: #fff;
+  margin-top: calc(3.8125rem - 1.5625rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-card {
+  display: flex;
+  max-width: 480px;
+  padding-block: 1.5625rem;
+  border-bottom: 1.5px solid #2C2C2C
+}
+
+.movie-title {
+  display: flex;
+  font-size: 1.125rem;
+  font-weight: 500;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.movie-title span {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.add-icon, .remove-icon {
+  width: 16px;
+}
+
+.movie-details {
+  display: flex;
+  font-size: 0.75rem;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.add-btn, .remove-btn {
+  cursor: pointer;
+  display: flex;
+  gap: 0.3125rem;
+}
+
+.movie {
+  margin-left: 1.3125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width:340px;
+  justify-content: center;
+}
+
+.movie-desc {
+  font-weight: 400;
+  color: #A5A5A5;
+  font-size: 0.875rem;
+}
+
+.poster {
+  height: 147.41px;
+  width: 99px;
+}
+
+.bar {
+  width:342px;
+  height: 38px;
+  padding: 9px 13px 9px 13px;
+  background: #2e2e2f url("./public/search.svg");
+  background-position: 14px 13px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  color: #A5A5A5;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: none;
+  outline: none;
+  padding-left: 2.8em;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-blend-mode: difference;
+}
+
+.loading {
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.loading div {
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+}
+
+.loading div:nth-child(1) {
+  background: #fe2c55;
+  animation: clockwise 1200ms infinite linear;
+}
+
+.loading div:nth-child(2) {
+  mix-blend-mode: lighten;
+  background: #25f4ee;
+  margin-left: -5px;
+  animation: counter-clockwise 1200ms infinite linear;
+}
+
+@keyframes clockwise {
+  0% {
+    transform: translateX(0);
+    width: 20px;
+  }
+
+  25% {
+    width: 25px;
+  }
+
+  50% {
+    transform: translateX(100%);
+    width: 20px;
+  }
+}
+
+@keyframes counter-clockwise {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-100%);
+  }
+}
+
+.remove-btn {
+  color: rgb(255, 87, 87);
+}

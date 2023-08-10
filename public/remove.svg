@@ -1,0 +1,7 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+	<title>remove-svg</title>
+	<style>
+		.s0 { fill: #e35b5a } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="s0" d="m0 25c0-13.8 11.2-25 25-25 13.8 0 25 11.2 25 25 0 13.8-11.2 25-25 25-13.8 0-25-11.2-25-25zm15.6-3.1c-1.7 0-3.1 1.4-3.1 3.1 0 1.7 1.4 3.1 3.1 3.1h18.8c1.7 0 3.1-1.4 3.1-3.1 0-1.7-1.4-3.1-3.1-3.1z"/>
+</svg>
