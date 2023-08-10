@@ -34,7 +34,7 @@ body {
 }
 
 nav {
-  background: #0E0E0E url("./public/THJJRUhNlEc.png");
+  background: #0E0E0E url("/THJJRUhNlEc.png");
   height: 208px;
   display: flex;
   align-items: center;
@@ -183,7 +183,7 @@ main {
   width:342px;
   height: 38px;
   padding: 9px 13px 9px 13px;
-  background: #2e2e2f url("./public/search.svg");
+  background: #2e2e2f url("/search.svg");
   background-position: 14px 13px;
   background-size: 15px;
   background-repeat: no-repeat;

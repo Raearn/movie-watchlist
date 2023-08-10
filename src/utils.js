@@ -50,8 +50,8 @@ async function getMovieHTML(movieArray) {
 
       function toggleButton(imdbID) {
         const button = movieID.includes(imdbID)
-    ? `<div class="remove-btn" data-remove="${imdbID}"><img src="./public/remove.svg" class="remove-icon">Remove</div>`
-    : `<div class="add-btn" data-add="${imdbID}"><img src="./public/add.svg" class="add-icon">Watchlist</div>`;
+    ? `<div class="remove-btn" data-remove="${imdbID}"><img src="/remove.svg" class="remove-icon">Remove</div>`
+    : `<div class="add-btn" data-add="${imdbID}"><img src="./add.svg" class="add-icon">Watchlist</div>`;
         return button
       }
 

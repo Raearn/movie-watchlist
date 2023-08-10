@@ -46,7 +46,7 @@ async function render(movieID) {
         <div class="movie-details">
           <span class="movie-duration">${movie.Runtime}</span>
           <span class="movie-genre">${movie.Genre}</span>
-          <div class="remove-btn" data-remove="${movie.imdbID}"><img src="./public/remove.svg" class="remove-icon">Remove</div>
+          <div class="remove-btn" data-remove="${movie.imdbID}"><img src="/remove.svg" class="remove-icon">Remove</div>
         </div>
         <div class="movie-desc">
           ${movie.Plot}

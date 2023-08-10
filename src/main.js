@@ -31,7 +31,7 @@ document.addEventListener("click", (e) => {
       let parent = e.target
       movieID.push(addMovie)
       localStorage.setItem("watchlistID", JSON.stringify(movieID))
-      parent.outerHTML = `<div class="remove-btn" data-remove="${addMovie}"><img src="./public/remove.svg" class="remove-icon">Remove</div>`
+      parent.outerHTML = `<div class="remove-btn" data-remove="${addMovie}"><img src="/remove.svg" class="remove-icon">Remove</div>`
     }
   }
   if (removeMovie) {
@@ -39,7 +39,7 @@ document.addEventListener("click", (e) => {
       let parent = e.target
       movieID = movieID.filter(item => item !== removeMovie)
       localStorage.setItem("watchlistID", JSON.stringify(movieID))
-      parent.outerHTML = `<div class="add-btn" data-add="${removeMovie}"><img src="./public/add.svg" class="add-icon">Watchlist</div>`
+      parent.outerHTML = `<div class="add-btn" data-add="${removeMovie}"><img src="./add.svg" class="add-icon">Watchlist</div>`
     }
   }
 })
